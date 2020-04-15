@@ -5,17 +5,20 @@ def insertionSort(arry):
             # if a number is smaller, resort the subarray
             if arry[index] < arry[subIndex]:
                 temp = arry[index]
-                while subIndex < index:
-                    arry[index] = arry[index - 1]
-                    index -= 1
+                tempIndex = index
+                while subIndex < tempIndex:
+                    arry[tempIndex] = arry[tempIndex - 1]
+                    tempIndex -= 1
                 arry[subIndex] = temp
     return arry
 
-print(insertionSort([2, 1, 3])) # PASSED
-print(insertionSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])) # PASSED
-print(insertionSort([])) # PASSED
-print(insertionSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])) # PASSED
-print(insertionSort([2, 1, 1, 1, 3, 1, 1, 2])) # PASSED
+# print(insertionSort([1]))
+# print(insertionSort([3, 2, 1]))
+# print(insertionSort([2, 1, 3])) # PASSED
+# print(insertionSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])) # PASSED
+# print(insertionSort([])) # PASSED
+# print(insertionSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])) # PASSED
+# print(insertionSort([2, 1, 1, 1, 3, 1, 1, 2])) # PASSED
 
 # Analysis: My algorithm can be optimized by implementing binary search to replace the inner for loop.
 
