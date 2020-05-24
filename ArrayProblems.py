@@ -54,10 +54,58 @@ testDuplicateNumber()
 
 
 # How do you find all pairs of an integer array whose sum is equal to a given number?
+def findPair(array, number):
+    pairs = []
+    sumDict = {}
+    for i in array:
+        if number - i in sumDict:
+            pairs.append([i, number - i])
+        else:
+            sumDict[i] = 0
+    return pairs
+def testFindPair():
+    array = [1, 2, 3, 4, 5, -2]
+    print(findPair(array, 3))
+testFindPair()
 
 # How do you find duplicate numbers in an array if it contains multiple duplicates?
+# Same as earlier duplicate number, but instead of returning True instantly append to a list
+
 # How are duplicates removed from a given array in Java?
+# Use a hashmap
+
 # How is an integer array sorted in place using the quicksort algorithm?
+# I will code this in separate file
+
 # How do you remove duplicates from an array in place?
+# Sort the array in place, then looking for duplicates is trivial
+
 # How do you reverse an array in place in Java?
+def swap(array, first, second):
+    temp = array[first]
+    array[first] = array[second]
+    array[second] = temp
+
+def reverseArray(array):
+    # O(n)
+    arrLen = len(array)
+    for i in range(arrLen//2):
+        swap(array, i, arrLen - i - 1)
+    return array
+
+def testReverseArray():
+    for i in range(100):
+        array = list(random.choices(list(range(0, 100)), k=10))
+        array = sorted(array)
+        reversedArray = list(reversed(array))
+        myReverse = reverseArray(array)
+        if reversedArray != myReverse:
+            print("reverseArray Failed. Expected list was " + str(reversedArray) +
+                  " list found was " + str(myReverse))
+            return
+    print("Success! reverseArray passed")
+    return
+testReverseArray()
+
 # How are duplicates removed from an array without using any library?
+# Same way done before
